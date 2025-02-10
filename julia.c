@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:09:47 by iammar            #+#    #+#             */
-/*   Updated: 2025/02/09 18:07:32 by iammar           ###   ########.fr       */
+/*   Updated: 2025/02/10 15:42:59 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,18 @@ void    put_color_to_pixel(t_fractal *fractal, int x, int y, int color)
 
 int exit_fractal(t_fractal *fractal)
 {
-    mlx_destroy_image(fractal->mlx, fractal->image);
-    mlx_destroy_window(fractal->mlx, fractal->window);
-    free(fractal->mlx);
-    free(fractal);
-    exit(1);
+    if (fractal->image)
+        mlx_destroy_image(fractal->mlx, fractal->image);
+    if (fractal->window)
+        mlx_destroy_window(fractal->mlx, fractal->window);
+    if (fractal->mlx)
+    {
+        mlx_destroy_display(fractal->mlx);
+        free(fractal->mlx);
+    }
+    if (fractal)
+        free(fractal);
+    exit(0);
 }
 
 void julia(t_fractal *fractal)
@@ -52,25 +59,6 @@ void julia(t_fractal *fractal)
         put_color_to_pixel(fractal, fractal->x, fractal->y, fractal->color * (i % 255));
 }
 
-void zoom(t_fractal *fractal, int x, int y, int zoom)
-{
-    double zoom_level;
-
-    zoom_level = 1.42;
-    if (zoom == 1)
-    {
-        fractal->offset_x = (x / fractal->zoom + fractal->offset_x) - (x / (fractal->zoom * zoom_level));
-        fractal->offset_y = (y / fractal->zoom + fractal->offset_y) - (y / (fractal->zoom * zoom_level));
-        fractal->zoom *= zoom_level;
-    }
-    else if (zoom == -1)
-    {
-        fractal->offset_x = (x / fractal->zoom + fractal->offset_x) - (x / (fractal->zoom / zoom_level));
-        fractal->offset_y = (y / fractal->zoom + fractal->offset_y) - (y / (fractal->zoom / zoom_level));
-        fractal->zoom /= zoom_level;
-    }
-}
-
 void change_iterations(t_fractal *fractal, int key_code)
 {
     if (key_code == 'M')
@@ -83,45 +71,4 @@ void change_iterations(t_fractal *fractal, int key_code)
         if (fractal->max_iterations < 4200)
             fractal->max_iterations += 42;
     }
-}
-
-int key_hook(int key_code, t_fractal *fractal, double real, double imaginary)
-{
-    if (key_code == 53) 
-        exit_fractal(fractal);
-    else if (key_code == 123) 
-        fractal->offset_x -= 42 / fractal->zoom;
-    else if (key_code == 124)
-        fractal->offset_x += 42 / fractal->zoom;
-    else if (key_code == 125)
-        fractal->offset_y += 42 / fractal->zoom;
-    else if (key_code == 126)
-        fractal->offset_y -= 42 / fractal->zoom;
-    else if (key_code == 15)
-        init_fractal(fractal, real, imaginary);
-    else if (key_code == 8)
-        fractal->color += (255 * 255 * 255) / 100;
-    draw_fractal(fractal, fractal->name);
-    return (0);
-}
-
-int mouse_hook(int mouse_code, int x, int y, t_fractal *fractal)
-{
-    double zoom_level;
-
-    zoom_level = 1.42;
-    if (mouse_code == 4)
-    {
-        fractal->offset_x = (x / fractal->zoom + fractal->offset_x) - (x / (fractal->zoom * zoom_level));
-        fractal->offset_y = (y / fractal->zoom + fractal->offset_y) - (y / (fractal->zoom * zoom_level));
-        fractal->zoom *= zoom_level;
-    }
-    else if (mouse_code == 5)
-    {
-        fractal->offset_x = (x / fractal->zoom + fractal->offset_x) - (x / (fractal->zoom / zoom_level));
-        fractal->offset_y = (y / fractal->zoom + fractal->offset_y) - (y / (fractal->zoom / zoom_level));
-        fractal->zoom /= zoom_level;
-    }
-    draw_fractal(fractal, fractal->name);
-    return (0);
 }
