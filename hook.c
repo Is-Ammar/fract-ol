@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:42:25 by iammar            #+#    #+#             */
-/*   Updated: 2025/02/10 15:43:04 by iammar           ###   ########.fr       */
+/*   Updated: 2025/02/10 15:47:35 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,19 @@ int mouse_hook(int mouse_code, int x, int y, t_fractal *fractal)
 
 int key_hook(int key_code, t_fractal *fractal, double real, double imaginary)
 {
-    if (key_code == 53) 
+    if (key_code == ESC) 
         exit_fractal(fractal);
-    else if (key_code == 123) 
+    else if (key_code == LEFT) 
         fractal->offset_x -= 42 / fractal->zoom;
-    else if (key_code == 124)
+    else if (key_code == RIGHT)
         fractal->offset_x += 42 / fractal->zoom;
-    else if (key_code == 125)
+    else if (key_code == DOWN)
         fractal->offset_y += 42 / fractal->zoom;
-    else if (key_code == 126)
+    else if (key_code == UP)
         fractal->offset_y -= 42 / fractal->zoom;
-    else if (key_code == 15)
+    else if (key_code == R)
         init_fractal(fractal, real, imaginary);
-    else if (key_code == 8)
+    else if (key_code == C)
         fractal->color += (255 * 255 * 255) / 100;
     draw_fractal(fractal, fractal->name);
     return (0);
