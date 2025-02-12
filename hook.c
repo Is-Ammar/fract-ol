@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:42:25 by iammar            #+#    #+#             */
-/*   Updated: 2025/02/12 09:50:28 by iammar           ###   ########.fr       */
+/*   Updated: 2025/02/12 14:34:09 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int mouse_hook(int mouse_code, int x, int y, t_fractal *fractal)
 {
     double zoom_level;
 
-    zoom_level = 1.1;
+    zoom_level = 1.11;
     if (mouse_code == 4)
     {
         fractal->offset_x = (x / fractal->zoom + fractal->offset_x) - (x / (fractal->zoom * zoom_level));
@@ -29,14 +29,13 @@ int mouse_hook(int mouse_code, int x, int y, t_fractal *fractal)
         fractal->offset_y = (y / fractal->zoom + fractal->offset_y) - (y / (fractal->zoom / zoom_level));
         fractal->zoom /= zoom_level;
     }
-    draw_fractal(fractal, fractal->name);
+    render_fractal(fractal, fractal->name);
     return (0);
 }
 
 
 int key_hook(int key_code, t_fractal *fractal)
 {
-    printf("%d\n",key_code);
     if (key_code == ESC) 
         exit_fractal(fractal);
     else if (key_code == LEFT) 
@@ -55,6 +54,21 @@ int key_hook(int key_code, t_fractal *fractal)
         fractal->max_iterations -= 10;
     else if(key_code == 65451)
         fractal->max_iterations += 10;
-    draw_fractal(fractal, fractal->name);
+    else if(key_code == 65436)
+    {
+        fractal->cx = -0.506667;
+        fractal->cy = 0.520000;
+    }
+    else if(key_code == 65433)
+     {
+        fractal->cx = 0.403333;
+        fractal->cy = 0.273333;
+     }
+     else if(key_code == 65435)
+     {
+        fractal->cx = 0.18;
+        fractal->cy = -0.566667;
+     }
+    render_fractal(fractal, fractal->name);
     return (0);
 }
