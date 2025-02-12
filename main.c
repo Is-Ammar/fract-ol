@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:16:21 by iammar            #+#    #+#             */
-/*   Updated: 2025/02/09 18:06:06 by iammar           ###   ########.fr       */
+/*   Updated: 2025/02/12 09:43:07 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,17 @@ int draw_fractal(t_fractal *fractal, char *query)
     return 0;
 }
 
-void init_fractal(t_fractal *fractal, double real, double imaginary) 
+void init_fractal(t_fractal *fractal) 
 {
+
     fractal->x = 0;
     fractal->y = 0;
     fractal->color = 0xFCBE11;
     fractal->zoom = 300;
     fractal->offset_x = -1.21;
     fractal->offset_y = -1.21;
-    fractal->max_iterations = 42;
-    fractal->cx = real;
-    fractal->cy = imaginary;
+    fractal->max_iterations = 60;
+  
 }
 
 void init_mlx(t_fractal *fractal) 
@@ -89,20 +89,23 @@ void init_mlx(t_fractal *fractal)
 
 int main(int argc, char **argv)
  {
-    double real = 0;
-    double imaginary = 0;
     if (argc < 2) 
     {
         write(1, "Usage: ./fractol <fractal>\n", 27);
         return 1;
     }
+   
+    t_fractal *fractal = malloc(sizeof(t_fractal));
+    if(!fractal)
+    {
+        exit(1);
+    }
     if(argc == 4)
     {
-        real = ft_atod(argv[2]);
-        imaginary = ft_atod(argv[3]);
+        fractal->cx = ft_atod(argv[2]);
+        fractal->cy = ft_atod(argv[3]);
     }
-    t_fractal *fractal = malloc(sizeof(t_fractal));
-    init_fractal(fractal, real, imaginary);
+    init_fractal(fractal);
     init_mlx(fractal);
     mlx_key_hook(fractal->window, key_hook, fractal);
     mlx_mouse_hook(fractal->window, mouse_hook, fractal);

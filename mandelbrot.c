@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:09:07 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/29 13:09:27 by iammar           ###   ########.fr       */
+/*   Updated: 2025/02/10 16:38:35 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void mandelbrot(t_fractal *fractal)
  int  i;
  double x_temp;
 
- fractal->name = "mandel";
  i = 0;
  fractal->zx = 0.0;
  fractal->zy = 0.0;

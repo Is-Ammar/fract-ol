@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:09:47 by iammar            #+#    #+#             */
-/*   Updated: 2025/02/10 15:42:59 by iammar           ###   ########.fr       */
+/*   Updated: 2025/02/12 09:34:03 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,3 @@ void julia(t_fractal *fractal)
         put_color_to_pixel(fractal, fractal->x, fractal->y, fractal->color * (i % 255));
 }
 
-void change_iterations(t_fractal *fractal, int key_code)
-{
-    if (key_code == 'M')
-    {
-        if (fractal->max_iterations > 42)
-            fractal->max_iterations -= 42;
-    }
-    else if (key_code == 'P')
-    {
-        if (fractal->max_iterations < 4200)
-            fractal->max_iterations += 42;
-    }
-}

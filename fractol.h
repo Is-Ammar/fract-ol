@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:19:10 by iammar            #+#    #+#             */
-/*   Updated: 2025/02/09 17:55:20 by iammar           ###   ########.fr       */
+/*   Updated: 2025/02/12 09:50:54 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@
 # define SIZE 800
 
 
-# define ESC 53
-# define UP 126
-# define DOWN 125
-# define LEFT 123
-# define RIGHT 124
-# define R 15
-# define C 8
+# define ESC 65307
+# define UP 65362
+# define DOWN 65364
+# define LEFT 65361
+# define RIGHT 65363
+# define R 114
+# define C 99
 # define H 4
 # define J 38
 # define P 35
@@ -62,7 +62,7 @@ typedef struct s_fractal
 	int		max_iterations;
 }			t_fractal;
 
-void        init_fractal(t_fractal *fractal, double real, double imaginary);
+void        init_fractal(t_fractal *fractal);
 int         draw_fractal(t_fractal *fractal, char *query);
 void        julia(t_fractal *fractal);
 void        mandelbrot(t_fractal *fractal);
@@ -72,9 +72,9 @@ double      ft_atod(const char *str);
 void        ft_putstr_fd(char const *s, int fd);
 int         ft_strncmp(const char *s1, const char *s2, size_t n);
 int         ft_strlen(char *str);
-int         key_hook(int key_code, t_fractal *fractal, double real, double imaginary);
+int         key_hook(int key_code, t_fractal *fractal);
 int	        exit_fractal(t_fractal *fractal);
-void draw_mandelbrot(t_fractal *fractal);
-void mandelbrot(t_fractal *fractal);
+void 		draw_mandelbrot(t_fractal *fractal);
+void 		mandelbrot(t_fractal *fractal);
 
 #endif
