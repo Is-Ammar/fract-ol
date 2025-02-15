@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 09:22:38 by iammar            #+#    #+#             */
-/*   Updated: 2025/02/14 12:55:06 by iammar           ###   ########.fr       */
+/*   Updated: 2025/02/15 09:18:36 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,15 @@ void	render_bsh(t_fractal *fractal)
 
 int	render_fractal(t_fractal *fractal, char *query)
 {
-	if (ft_strncmp(query, "julia", 5) == 0)
+	if (ft_strcmp(query, "julia") == 0)
 	{
 		render_julia(fractal);
 	}
-	else if (ft_strncmp(query, "mandelbrot", 10) == 0)
+	else if (ft_strcmp(query, "mandelbrot") == 0)
 	{
 		render_mandelbrot(fractal);
 	}
-	else if (ft_strncmp(query, "burning_ship", 11) == 0)
+	else if (ft_strcmp(query, "burning_ship") == 0)
 	{
 		render_bsh(fractal);
 	}

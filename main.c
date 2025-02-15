@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:16:21 by iammar            #+#    #+#             */
-/*   Updated: 2025/02/14 12:46:13 by iammar           ###   ########.fr       */
+/*   Updated: 2025/02/15 09:18:06 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,10 @@ void	check_input(int ac, char **av)
 		write(1, "Usage: ./fractol <fractal>\n", 27);
 		exit(1);
 	}
-	if ((!ft_strncmp(av[1], "mandelbrot", 10) || !ft_strncmp(av[1],
-				"burning_ship", 11)) && ac == 2)
+	if ((!ft_strcmp(av[1], "mandelbrot") || !ft_strcmp(av[1],
+				"burning_ship")) && ac == 2)
 		return ;
-	if (!ft_strncmp(av[1], "julia", 5))
+	if (!ft_strcmp(av[1], "julia"))
 	{
 		if (ac != 4 || !ft_isdigit(av[2]) || !ft_isdigit(av[3]))
 		{

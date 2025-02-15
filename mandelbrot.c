@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:09:07 by iammar            #+#    #+#             */
-/*   Updated: 2025/02/14 13:13:02 by iammar           ###   ########.fr       */
+/*   Updated: 2025/02/15 10:01:23 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	mandelbrot(t_fractal *fractal)
 	{
 		x_temp = fractal->zx * fractal->zx - fractal->zy * fractal->zy
 			+ fractal->cx;
-		fractal->zy = 2. * fractal->zx * fractal->zy + fractal->cy;
+		fractal->zy = 2.0 * fractal->zx * fractal->zy + fractal->cy;
 		fractal->zx = x_temp;
 		if (fractal->zx * fractal->zx + fractal->zy
 			* fractal->zy >= __DBL_MAX__)
