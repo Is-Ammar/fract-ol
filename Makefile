@@ -8,7 +8,7 @@ MLX_INCLUDE = -I$(MLX_DIR)
 MLX_LINK = $(MLX_LIB) -L/usr/lib -lXext -lX11 -lm
 
 NAME = fractol
-SRCS = julia.c main.c utils.c mandelbrot.c hook.c burning_ship.c render.c
+SRCS = julia.c main.c utils.c mandelbrot.c hook.c burning_ship.c render.c exit.c
 OBJ = $(SRCS:.c=.o)
 
 all: $(NAME)

@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 09:22:38 by iammar            #+#    #+#             */
-/*   Updated: 2025/02/15 09:18:36 by iammar           ###   ########.fr       */
+/*   Updated: 2025/02/22 10:15:16 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,14 @@ int	render_fractal(t_fractal *fractal, char *query)
 	{
 		render_julia(fractal);
 	}
-	else if (ft_strcmp(query, "mandelbrot") == 0)
+	else if (!ft_strcmp(query, "mandelbrot"))
 	{
-		render_mandelbrot(fractal);
+    if (fractal->first_for_offset == 0) 
+    {
+        fractal->offset_x = -2.027586;
+        fractal->first_for_offset = 1;
+    }
+    render_mandelbrot(fractal);
 	}
 	else if (ft_strcmp(query, "burning_ship") == 0)
 	{

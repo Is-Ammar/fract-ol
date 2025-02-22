@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:16:21 by iammar            #+#    #+#             */
-/*   Updated: 2025/02/15 09:18:06 by iammar           ###   ########.fr       */
+/*   Updated: 2025/02/22 21:09:15 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void	init_fractal(t_fractal *fractal)
 {
 	fractal->x = 0;
 	fractal->y = 0;
-	fractal->color = 0xc1e7f7;
-	fractal->zoom = 300;
+	fractal->color = 0x00CED1;
+	fractal->zoom = 290;
 	fractal->offset_x = -1.45;
-	fractal->offset_y = -1.25;
+	fractal->offset_y = -1.30;
 	fractal->max_iterations = 50;
 }
 
@@ -31,7 +31,7 @@ void	init_mlx(t_fractal *fractal)
 	fractal->mlx = mlx_init();
 	if (!fractal->mlx)
 		exit_fractal(fractal, 1);
-	fractal->window = mlx_new_window(fractal->mlx, SIZE, SIZE, "Fract-ol");
+	fractal->window = mlx_new_window(fractal->mlx, SIZE, SIZE, fractal->name);
 	if (!fractal->window)
 		exit_fractal(fractal, 1);
 	fractal->image = mlx_new_image(fractal->mlx, SIZE, SIZE);
@@ -50,8 +50,8 @@ void	check_input(int ac, char **av)
 		write(1, "Usage: ./fractol <fractal>\n", 27);
 		exit(1);
 	}
-	if ((!ft_strcmp(av[1], "mandelbrot") || !ft_strcmp(av[1],
-				"burning_ship")) && ac == 2)
+	if ((!ft_strcmp(av[1], "mandelbrot") || !ft_strcmp(av[1], "burning_ship"))
+		&& ac == 2)
 		return ;
 	if (!ft_strcmp(av[1], "julia"))
 	{
@@ -83,11 +83,14 @@ int	main(int argc, char **argv)
 		fractal->cx = ft_atod(argv[2]);
 		fractal->cy = ft_atod(argv[3]);
 	}
+	fractal->name = argv[1];
 	init_mlx(fractal);
 	mlx_key_hook(fractal->window, key_hook, fractal);
-	mlx_mouse_hook(fractal->window, mouse_hook, fractal);
+	if (!ft_strcmp(fractal->name, "julia"))
+		mlx_mouse_hook(fractal->window, mouse_hook, fractal);
+	else
+		mlx_mouse_hook(fractal->window, mouse_hook2, fractal);
 	mlx_hook(fractal->window, 17, 0L, exit_fractal, fractal);
-	fractal->name = argv[1];
 	render_fractal(fractal, argv[1]);
 	mlx_loop(fractal->mlx);
 	return (0);

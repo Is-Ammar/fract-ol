@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:52:21 by iammar            #+#    #+#             */
-/*   Updated: 2025/02/15 09:17:07 by iammar           ###   ########.fr       */
+/*   Updated: 2025/02/21 15:15:22 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,16 +77,4 @@ int	ft_strcmp(const char *s1, const char *s2)
 		i++;
 	}
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-}
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		i++;
-	}
-	return (i);
 }
