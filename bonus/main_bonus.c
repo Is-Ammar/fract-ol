@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:16:21 by iammar            #+#    #+#             */
-/*   Updated: 2025/02/25 18:49:54 by iammar           ###   ########.fr       */
+/*   Updated: 2025/02/25 19:57:50 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	init_mlx(t_fractal *fractal)
 		exit_fractal(fractal, 1);
 	fractal->pointer_to_image = mlx_get_data_addr(fractal->image,
 			&fractal->bits_per_pixel, &fractal->size_line, &fractal->endian);
-		// printf("----------->%d\n",fractal->endian);
 	if (!fractal->pointer_to_image)
 		exit_fractal(fractal, 1);
 }

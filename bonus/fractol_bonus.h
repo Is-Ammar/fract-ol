@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   fractol_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:19:10 by iammar            #+#    #+#             */
-/*   Updated: 2025/02/25 18:39:01 by iammar           ###   ########.fr       */
+/*   Updated: 2025/02/25 18:46:00 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void		julia(t_fractal *fractal);
 void		mandelbrot(t_fractal *fractal);
 void		pixel_color(t_fractal *fractal, int x, int y, int color);
 int			mouse_hook(int button, int x, int y, t_fractal *fractal);
-double		ft_atoi(const char *str);
+double		ft_atod(const char *str);
 void		ft_putstr_fd(char const *s, int fd);
 int			ft_strcmp(const char *s1, const char *s2);
 int			ft_strlen(char *str);
