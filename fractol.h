@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:19:10 by iammar            #+#    #+#             */
-/*   Updated: 2025/02/22 21:07:43 by iammar           ###   ########.fr       */
+/*   Updated: 2025/02/25 14:19:33 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <string.h>
 # include <unistd.h>
 
-# define SIZE 800
+# define SIZE 700
 
 # define ESC 65307
 # define UP 65362
@@ -53,7 +53,7 @@ typedef struct s_fractal
 	int		endian;
 	int		x;
 	int		y;
-	int first_for_offset;
+	int 	first_for_offset;
 	double	zx;
 	double	zy;
 	double	cx;
@@ -61,7 +61,7 @@ typedef struct s_fractal
 	int		color;
 	double	offset_x;
 	double	offset_y;
-	double	zoom;
+	double	scale;
 	char	*name;
 	int		max_iterations;
 }			t_fractal;
@@ -85,5 +85,6 @@ int			ft_isdigit(const char *str);
 void		render_julia(t_fractal *fractal);
 void		render_bsh(t_fractal *fractal);
 int	mouse_hook2(int mouse_code, int x, int y, t_fractal *fractal);
+int exit_fractal_wrapper(t_fractal *fractal);
 
 #endif
