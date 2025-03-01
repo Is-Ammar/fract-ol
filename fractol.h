@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:19:10 by iammar            #+#    #+#             */
-/*   Updated: 2025/02/25 18:39:01 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/01 23:07:05 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ typedef struct s_fractal
 	int		endian;
 	int		x;
 	int		y;
-	int 	first_for_offset;
 	double	zx;
 	double	zy;
 	double	cx;

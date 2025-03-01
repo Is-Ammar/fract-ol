@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:19:10 by iammar            #+#    #+#             */
-/*   Updated: 2025/02/25 18:46:00 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/01 23:10:52 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ typedef struct s_fractal
 	int		endian;
 	int		x;
 	int		y;
-	int 	first_for_offset;
 	double	zx;
 	double	zy;
 	double	cx;
@@ -67,7 +66,7 @@ typedef struct s_fractal
 }			t_fractal;
 
 void		init_fractal(t_fractal *fractal);
-void			render_fractal(t_fractal *fractal, char *query);
+void		render_fractal(t_fractal *fractal, char *query);
 void		julia(t_fractal *fractal);
 void		mandelbrot(t_fractal *fractal);
 void		pixel_color(t_fractal *fractal, int x, int y, int color);

@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:09:07 by iammar            #+#    #+#             */
-/*   Updated: 2025/02/24 13:39:05 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/01 22:46:24 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	mandelbrot(t_fractal *fractal)
 	iterations = 0;
 	fractal->zx = 0.0;
 	fractal->zy = 0.0;
-	fractal->cx = (fractal->x / fractal->scale) + fractal->offset_x;
+	fractal->cx = (fractal->x / fractal->scale) - fractal->offset_x;
 	fractal->cy = (fractal->y / fractal->scale) + fractal->offset_y;
 	while (++iterations < fractal->max_iterations)
 	{
