@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:42:25 by iammar            #+#    #+#             */
-/*   Updated: 2025/03/01 23:06:58 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/01 23:40:06 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ int	mouse_hook(int mouse_code, int x, int y, t_fractal *fractal)
 		return (0);
 	if (ft_strcmp(fractal->name, "julia") == 0)
 		{
-			fractal->offset_x -= ((SIZE - x) / fractal->scale) - ((SIZE - x) / new_scale);
+			fractal->offset_x += ((SIZE - x) / fractal->scale) - ((SIZE - x) / new_scale);
 		}
 	else
 	{
-			fractal->offset_x -= (x / fractal->scale) - (x / new_scale);
+			fractal->offset_x += (x / fractal->scale) - (x / new_scale);
 	}
 	fractal->offset_y += (y / fractal->scale) - (y / new_scale);
 
@@ -72,10 +72,10 @@ int	key_hook(int key_code, t_fractal *fractal)
 		exit_fractal(fractal, 0);
 	else if (key_code == LEFT)
 	{
-		fractal->offset_x -= 42 / fractal->scale;
+		fractal->offset_x += 42 / fractal->scale;
 	}
 	else if (key_code == RIGHT)
-		fractal->offset_x += 42 / fractal->scale;
+		fractal->offset_x -= 42 / fractal->scale;
 	else if (key_code == DOWN)
 	{
 		fractal->offset_y += 42 / fractal->scale;

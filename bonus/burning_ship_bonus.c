@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:05:25 by iammar            #+#    #+#             */
-/*   Updated: 2025/03/01 23:14:44 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/01 23:38:27 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	burning_ship(t_fractal *fractal)
 	i = 0;
 	fractal->zx = 0.0;
 	fractal->zy = 0.0;
-	fractal->cx = (fractal->x / fractal->scale) - fractal->offset_x;
+	fractal->cx = (fractal->x / fractal->scale) + fractal->offset_x;
 	fractal->cy = (fractal->y / fractal->scale) + fractal->offset_y;
 	while (++i < fractal->max_iterations)
 	{

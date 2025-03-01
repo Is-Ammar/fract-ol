@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:16:21 by iammar            #+#    #+#             */
-/*   Updated: 2025/03/01 23:15:58 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/01 23:39:21 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	init_fractal(t_fractal *fractal)
 	fractal->y = 0;
 	fractal->color = 0x00CED1;
 	fractal->scale = SIZE / 4;
-	fractal->offset_x = 2;
+	fractal->offset_x = -2;
 	fractal->offset_y = -2;
 	fractal->max_iterations = 50;
 }

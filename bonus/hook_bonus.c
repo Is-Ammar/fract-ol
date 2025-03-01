@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:42:25 by iammar            #+#    #+#             */
-/*   Updated: 2025/03/01 23:13:14 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/01 23:38:43 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,10 @@ int	key_hook(int key_code, t_fractal *fractal)
 		exit_fractal(fractal, 0);
 	else if (key_code == LEFT)
 	{
-		fractal->offset_x += 42 / fractal->scale;
+		fractal->offset_x -= 42 / fractal->scale;
 	}
 	else if (key_code == RIGHT)
-		fractal->offset_x -= 42 / fractal->scale;
+		fractal->offset_x += 42 / fractal->scale;
 	else if (key_code == DOWN)
 	{
 		fractal->offset_y += 42 / fractal->scale;
