@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:05:25 by iammar            #+#    #+#             */
-/*   Updated: 2025/03/01 23:38:27 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/02 01:35:02 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	burning_ship(t_fractal *fractal)
 
 	}
 	if (i == fractal->max_iterations)
-		pixel_color(fractal, fractal->x, fractal->y, 0x000000);
+		pixel_color(fractal, fractal->x, SIZE - fractal->y, 0x000000);
 	else
-		pixel_color(fractal, fractal->x, fractal->y, (fractal->color * i));
+		pixel_color(fractal, fractal->x, SIZE - fractal->y, (fractal->color * i));
 }

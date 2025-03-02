@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:42:25 by iammar            #+#    #+#             */
-/*   Updated: 2025/03/01 23:38:43 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/02 19:47:51 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,10 @@ int	mouse_hook(int mouse_code, int x, int y, t_fractal *fractal)
 		new_scale = fractal->scale / zoom_factor;
 	else
 		return (0);
-	if (ft_strcmp(fractal->name, "julia") == 0)
-		{
-			fractal->offset_x -= ((SIZE - x) / fractal->scale) - ((SIZE - x) / new_scale);
-		}
-	else
-	{
-			fractal->offset_x -= (x / fractal->scale) - (x / new_scale);
-	}
-	fractal->offset_y += (y / fractal->scale) - (y / new_scale);
+
+	fractal->offset_x += (x / fractal->scale) - (x / new_scale);
+	fractal->offset_y += ((SIZE - y) / fractal->scale) - ((SIZE - y) / new_scale);
+
 	fractal->scale = new_scale;
 	render_fractal(fractal, fractal->name);
 
@@ -77,14 +72,12 @@ int	key_hook(int key_code, t_fractal *fractal)
 		fractal->offset_x += 42 / fractal->scale;
 	else if (key_code == DOWN)
 	{
-		fractal->offset_y += 42 / fractal->scale;
+		fractal->offset_y -= 42 / fractal->scale;
 	}
 	else if (key_code == UP)
-		fractal->offset_y -= 42 / fractal->scale;
+		fractal->offset_y += 42 / fractal->scale;
 	else if (key_code == R)
-	{
 		init_fractal(fractal);
-	}
 	famous_julias(key_code, fractal);
 	render_fractal(fractal, fractal->name);
 	return (0);
