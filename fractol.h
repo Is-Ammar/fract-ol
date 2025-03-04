@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:19:10 by iammar            #+#    #+#             */
-/*   Updated: 2025/03/01 23:07:05 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/03 17:57:57 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct s_fractal
 }			t_fractal;
 
 void		init_fractal(t_fractal *fractal);
-void			render_fractal(t_fractal *fractal, char *query);
+void		render_fractal(t_fractal *fractal);
 void		julia(t_fractal *fractal);
 void		mandelbrot(t_fractal *fractal);
 void		pixel_color(t_fractal *fractal, int x, int y, int color);
@@ -77,13 +77,8 @@ int			ft_strcmp(const char *s1, const char *s2);
 int			ft_strlen(char *str);
 int			key_hook(int key_code, t_fractal *fractal);
 int			exit_fractal(t_fractal *fractal, int toggle);
-void		render_mandelbrot(t_fractal *fractal);
-void		mandelbrot(t_fractal *fractal);
-void		burning_ship(t_fractal *fractal);
 int			ft_isdigit(const char *str);
-void		render_julia(t_fractal *fractal);
-void		render_bsh(t_fractal *fractal);
-int	mouse_hook2(int mouse_code, int x, int y, t_fractal *fractal);
-int exit_fractal_wrapper(t_fractal *fractal);
+int			mouse_hook2(int mouse_code, int x, int y, t_fractal *fractal);
+int			exit_fractal_wrapper(t_fractal *fractal);
 
 #endif

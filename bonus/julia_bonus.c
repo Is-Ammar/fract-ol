@@ -6,11 +6,11 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:09:47 by iammar            #+#    #+#             */
-/*   Updated: 2025/03/02 01:12:14 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/03 20:53:53 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 void	pixel_color(t_fractal *fractal, int x, int y, int color)
 {
@@ -27,7 +27,7 @@ void	julia(t_fractal *fractal)
 	double	zy_squared;
 
 	fractal->zx = fractal->x / fractal->scale + fractal->offset_x;
-	fractal->zy = (SIZE - fractal->y) / fractal->scale + fractal->offset_y;	
+	fractal->zy = (SIZE - fractal->y) / fractal->scale + fractal->offset_y;
 	iterations = 0;
 	while (++iterations < fractal->max_iterations)
 	{

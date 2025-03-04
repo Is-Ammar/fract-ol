@@ -12,9 +12,9 @@
 
 #include "fractol.h"
 
-int exit_fractal_wrapper(t_fractal *fractal)
+int	exit_fractal_wrapper(t_fractal *fractal)
 {
-    return (exit_fractal(fractal, 0));
+	return (exit_fractal(fractal, 0));
 }
 
 int	exit_fractal(t_fractal *fractal, int toggle)

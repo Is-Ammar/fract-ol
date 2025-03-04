@@ -6,11 +6,11 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:16:21 by iammar            #+#    #+#             */
-/*   Updated: 2025/03/01 23:39:28 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/03 17:38:18 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -20,7 +20,7 @@ void	init_fractal(t_fractal *fractal)
 	fractal->x = 0;
 	fractal->y = 0;
 	fractal->color = 0x00CED1;
-	fractal->scale = SIZE /4;
+	fractal->scale = SIZE / 4;
 	fractal->offset_x = -2;
 	fractal->offset_y = -2;
 	fractal->max_iterations = 50;
@@ -50,7 +50,7 @@ void	check_input(int ac, char **av)
 		write(1, "Usage: ./fractol <fractal>\n", 27);
 		exit(1);
 	}
-	if ((!ft_strcmp(av[1], "mandelbrot") || !ft_strcmp(av[1], "burning_ship"))
+	if ((!ft_strcmp(av[1], "mandelbrot") || !ft_strcmp(av[1], "tricorn"))
 		&& ac == 2)
 		return ;
 	if (!ft_strcmp(av[1], "julia"))
@@ -88,7 +88,7 @@ int	main(int argc, char **argv)
 	mlx_key_hook(fractal->window, key_hook, fractal);
 	mlx_mouse_hook(fractal->window, mouse_hook, fractal);
 	mlx_hook(fractal->window, 17, 0, exit_fractal_wrapper, fractal);
-	render_fractal(fractal, argv[1]);
+	render_fractal(fractal);
 	mlx_loop(fractal->mlx);
 	return (0);
 }

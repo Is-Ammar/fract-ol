@@ -6,11 +6,11 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:52:21 by iammar            #+#    #+#             */
-/*   Updated: 2025/02/25 19:58:04 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/03 17:38:32 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 double	ft_atoi(const char *str)
 {

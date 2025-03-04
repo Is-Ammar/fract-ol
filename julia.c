@@ -39,7 +39,7 @@ void	julia(t_fractal *fractal)
 		fractal->zx = zx_squared - zy_squared + fractal->cx;
 	}
 	if (iterations == fractal->max_iterations)
-		pixel_color(fractal, fractal->x,  SIZE - fractal->y, 0x000000);
+		pixel_color(fractal, fractal->x, SIZE - fractal->y, 0x000000);
 	else
 		pixel_color(fractal, fractal->x, SIZE - fractal->y, (fractal->color
 				* iterations));

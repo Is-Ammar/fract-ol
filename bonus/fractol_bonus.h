@@ -6,12 +6,12 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:19:10 by iammar            #+#    #+#             */
-/*   Updated: 2025/03/01 23:10:52 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/03 21:01:37 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#ifndef FRACTOL_BONUS_H
+# define FRACTOL_BONUS_H
 
 # include "/usr/include/minilibx-linux/mlx.h"
 # include <fcntl.h>
@@ -66,24 +66,19 @@ typedef struct s_fractal
 }			t_fractal;
 
 void		init_fractal(t_fractal *fractal);
-void		render_fractal(t_fractal *fractal, char *query);
+void		render_fractal(t_fractal *fractal);
 void		julia(t_fractal *fractal);
 void		mandelbrot(t_fractal *fractal);
 void		pixel_color(t_fractal *fractal, int x, int y, int color);
 int			mouse_hook(int button, int x, int y, t_fractal *fractal);
-double		ft_atod(const char *str);
+double		ft_atoi(const char *str);
 void		ft_putstr_fd(char const *s, int fd);
 int			ft_strcmp(const char *s1, const char *s2);
 int			ft_strlen(char *str);
 int			key_hook(int key_code, t_fractal *fractal);
 int			exit_fractal(t_fractal *fractal, int toggle);
-void		render_mandelbrot(t_fractal *fractal);
-void		mandelbrot(t_fractal *fractal);
-void		burning_ship(t_fractal *fractal);
+void		tricorn(t_fractal *fractal);
 int			ft_isdigit(const char *str);
-void		render_julia(t_fractal *fractal);
-void		render_bsh(t_fractal *fractal);
-int	mouse_hook2(int mouse_code, int x, int y, t_fractal *fractal);
-int exit_fractal_wrapper(t_fractal *fractal);
+int			exit_fractal_wrapper(t_fractal *fractal);
 
 #endif

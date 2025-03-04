@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:16:21 by iammar            #+#    #+#             */
-/*   Updated: 2025/03/02 19:44:19 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/02 21:01:06 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,7 @@ void	check_input(int ac, char **av)
 		write(1, "Usage: ./fractol <fractal>\n", 27);
 		exit(1);
 	}
-	if ((!ft_strcmp(av[1], "mandelbrot"))
-		&& ac == 2)
+	if ((!ft_strcmp(av[1], "mandelbrot")) && ac == 2)
 		return ;
 	if (!ft_strcmp(av[1], "julia"))
 	{
@@ -65,7 +64,6 @@ void	check_input(int ac, char **av)
 	write(1, "Usage: ./fractol <fractal>\n", 27);
 	exit(1);
 }
-
 
 int	main(int argc, char **argv)
 {
@@ -89,7 +87,7 @@ int	main(int argc, char **argv)
 	mlx_key_hook(fractal->window, key_hook, fractal);
 	mlx_mouse_hook(fractal->window, mouse_hook, fractal);
 	mlx_hook(fractal->window, 17, 0, exit_fractal_wrapper, fractal);
-	render_fractal(fractal, argv[1]);
+	render_fractal(fractal);
 	mlx_loop(fractal->mlx);
 	return (0);
 }
