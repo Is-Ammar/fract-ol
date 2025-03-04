@@ -6,11 +6,11 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 15:45:11 by iammar            #+#    #+#             */
-/*   Updated: 2025/02/25 18:46:03 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/04 15:43:42 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 int	exit_fractal_wrapper(t_fractal *fractal)
 {
