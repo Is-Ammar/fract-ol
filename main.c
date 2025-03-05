@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:16:21 by iammar            #+#    #+#             */
-/*   Updated: 2025/03/02 21:01:06 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/04 16:29:24 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,16 @@ void	check_input(int ac, char **av)
 	exit(1);
 }
 
+void init_pointers(t_fractal *fractal)
+{
+	fractal->mlx = NULL;
+	fractal->pointer_to_image = NULL;
+	fractal->window = NULL;
+	fractal->size_line = 0;
+	fractal->bits_per_pixel = 0;
+	fractal->image = NULL;
+}
+
 int	main(int argc, char **argv)
 {
 	t_fractal	*fractal;
@@ -77,6 +87,7 @@ int	main(int argc, char **argv)
 		exit(1);
 	}
 	init_fractal(fractal);
+	init_pointers(fractal);
 	if (argc == 4)
 	{
 		fractal->cx = ft_atoi(argv[2]);

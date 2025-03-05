@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:19:10 by iammar            #+#    #+#             */
-/*   Updated: 2025/03/04 15:35:42 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/04 16:18:06 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,5 @@ int			exit_fractal(t_fractal *fractal, int toggle);
 int			ft_isdigit(const char *str);
 int			mouse_hook2(int mouse_code, int x, int y, t_fractal *fractal);
 int			exit_fractal_wrapper(t_fractal *fractal);
-
-
 
 #endif

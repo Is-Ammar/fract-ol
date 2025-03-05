@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:19:10 by iammar            #+#    #+#             */
-/*   Updated: 2025/03/03 21:01:37 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/04 16:16:48 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ void		mandelbrot(t_fractal *fractal);
 void		pixel_color(t_fractal *fractal, int x, int y, int color);
 int			mouse_hook(int button, int x, int y, t_fractal *fractal);
 double		ft_atoi(const char *str);
-void		ft_putstr_fd(char const *s, int fd);
 int			ft_strcmp(const char *s1, const char *s2);
 int			ft_strlen(char *str);
 int			key_hook(int key_code, t_fractal *fractal);

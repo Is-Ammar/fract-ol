@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:42:25 by iammar            #+#    #+#             */
-/*   Updated: 2025/03/04 00:29:48 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/04 21:07:59 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int	mouse_hook(int mouse_code, int x, int y, t_fractal *fractal)
 {
 	double	zoom_factor;
 	double	new_scale;
-
 	zoom_factor = 1.1;
+	y = SIZE - y;
 	if (mouse_code == 4)
 		new_scale = fractal->scale * zoom_factor;
 	else if (mouse_code == 5)
@@ -25,8 +25,7 @@ int	mouse_hook(int mouse_code, int x, int y, t_fractal *fractal)
 	else
 		return (0);
 	fractal->offset_x += (x / fractal->scale) - (x / new_scale);
-	fractal->offset_y += ((SIZE - y) / fractal->scale) - ((SIZE - y)
-			/ new_scale);
+	fractal->offset_y += (y / fractal->scale) - (y / new_scale);
 	fractal->scale = new_scale;
 	render_fractal(fractal);
 	return (0);
