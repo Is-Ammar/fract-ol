@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:42:25 by iammar            #+#    #+#             */
-/*   Updated: 2025/03/04 21:07:59 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/06 02:07:19 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	mouse_hook(int mouse_code, int x, int y, t_fractal *fractal)
 {
 	double	zoom_factor;
 	double	new_scale;
+
 	zoom_factor = 1.1;
 	y = SIZE - y;
 	if (mouse_code == 4)
@@ -35,26 +36,24 @@ void	famous_julias(int key_code, t_fractal *fractal)
 {
 	if (key_code == C)
 	{
-		fractal->color += 255;
+		fractal->color += 255 * 255 * 255;
 	}
 	else if (key_code == 65453)
-		fractal->max_iterations -= 10;
+	{
+		if(fractal->max_iterations > 10)
+			fractal->max_iterations -= 10;
+	}
 	else if (key_code == 65451)
 		fractal->max_iterations += 10;
 	else if (key_code == 65433)
 	{
-		fractal->cx = 0.403333;
-		fractal->cy = 0.273333;
+		fractal->cx += 0.01;
+		fractal->cy += 0.01;
 	}
 	else if (key_code == 65435)
 	{
-		fractal->cx = 0.18;
-		fractal->cy = -0.566667;
-	}
-	else if (key_code == 65430)
-	{
-		fractal->cx = -0.8;
-		fractal->cy = 0.150;
+		fractal->cx -= 0.01;
+		fractal->cy -= 0.01;
 	}
 }
 

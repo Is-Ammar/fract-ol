@@ -16,6 +16,7 @@ int	mouse_hook(int mouse_code, int x, int y, t_fractal *fractal)
 {
 	double	zoom_factor;
 	double	new_scale;
+
 	zoom_factor = 1.1;
 	y = SIZE - y;
 	if (mouse_code == 4)

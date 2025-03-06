@@ -6,14 +6,11 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:16:21 by iammar            #+#    #+#             */
-/*   Updated: 2025/03/04 16:29:24 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/06 00:15:16 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <math.h>
-#include <stdio.h>
-#include <stdlib.h>
 
 void	init_fractal(t_fractal *fractal)
 {
@@ -65,7 +62,7 @@ void	check_input(int ac, char **av)
 	exit(1);
 }
 
-void init_pointers(t_fractal *fractal)
+void	init_pointers(t_fractal *fractal)
 {
 	fractal->mlx = NULL;
 	fractal->pointer_to_image = NULL;

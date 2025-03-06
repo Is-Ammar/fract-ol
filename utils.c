@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:52:21 by iammar            #+#    #+#             */
-/*   Updated: 2025/02/25 18:50:18 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/05 15:39:09 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,6 @@ int	ft_isdigit(const char *str)
 		str++;
 	}
 	return (1);
-}
-
-void	ft_putstr_fd(char const *s, int fd)
-{
-	while (*s)
-	{
-		write(fd, s, 1);
-		s++;
-	}
 }
 
 int	ft_strcmp(const char *s1, const char *s2)

@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:09:47 by iammar            #+#    #+#             */
-/*   Updated: 2025/03/03 20:53:53 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/05 21:19:30 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	julia(t_fractal *fractal)
 	double	zy_squared;
 
 	fractal->zx = fractal->x / fractal->scale + fractal->offset_x;
-	fractal->zy = (SIZE - fractal->y) / fractal->scale + fractal->offset_y;
+	fractal->zy = fractal->y / fractal->scale + fractal->offset_y;
 	iterations = 0;
 	while (++iterations < fractal->max_iterations)
 	{
@@ -39,8 +39,8 @@ void	julia(t_fractal *fractal)
 		fractal->zx = zx_squared - zy_squared + fractal->cx;
 	}
 	if (iterations == fractal->max_iterations)
-		pixel_color(fractal, fractal->x, fractal->y, 0x000000);
+		pixel_color(fractal, fractal->x, SIZE - fractal->y, 0x000000);
 	else
-		pixel_color(fractal, fractal->x, fractal->y, (fractal->color
+		pixel_color(fractal, fractal->x, SIZE - fractal->y, (fractal->color
 				* iterations));
 }

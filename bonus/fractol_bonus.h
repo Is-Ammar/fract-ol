@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:19:10 by iammar            #+#    #+#             */
-/*   Updated: 2025/03/04 16:16:48 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/05 02:30:21 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,7 @@
 # define FRACTOL_BONUS_H
 
 # include "/usr/include/minilibx-linux/mlx.h"
-# include <fcntl.h>
-# include <math.h>
-# include <stdio.h>
 # include <stdlib.h>
-# include <string.h>
 # include <unistd.h>
 
 # define SIZE 700
