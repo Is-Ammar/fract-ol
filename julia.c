@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:09:47 by iammar            #+#    #+#             */
-/*   Updated: 2025/03/02 02:42:57 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/08 17:14:33 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,22 @@ void	pixel_color(t_fractal *fractal, int x, int y, int color)
 
 	buffer = (int *)fractal->pointer_to_image;
 	buffer[(y * fractal->size_line / 4) + x] = color;
+}
+
+int	smooth_color(t_fractal *fractal, int iterations, double zx, double zy)
+{
+	if (iterations == fractal->max_iterations)
+		return 0x000000; 
+
+	double log_zn = log(zx * zx + zy * zy) / 2.0;
+	double nu = log(log_zn / log(2.0)) / log(2.0);
+	double t = (iterations + 1 - nu) / fractal->max_iterations;
+
+	int r = (int)(9 * (1 - t) * t * t * t * 255);
+	int g = (int)(15 * (1 - t) * (1 - t) * t * t * 255);
+	int b = (int)(8.5 * (1 - t) * (1 - t) * (1 - t) * t * 255);
+
+	return (r << 16) | (g << 8) | b;
 }
 
 void	julia(t_fractal *fractal)
@@ -38,9 +54,7 @@ void	julia(t_fractal *fractal)
 		fractal->zy = 2.0 * fractal->zx * fractal->zy + fractal->cy;
 		fractal->zx = zx_squared - zy_squared + fractal->cx;
 	}
-	if (iterations == fractal->max_iterations)
-		pixel_color(fractal, fractal->x, SIZE - fractal->y, 0x000000);
-	else
-		pixel_color(fractal, fractal->x, SIZE - fractal->y, (fractal->color
-				* iterations));
+
+	int color = smooth_color(fractal, iterations, fractal->zx, fractal->zy);
+	pixel_color(fractal, fractal->x, SIZE - fractal->y, color);
 }

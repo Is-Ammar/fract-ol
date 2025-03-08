@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:09:07 by iammar            #+#    #+#             */
-/*   Updated: 2025/03/06 01:19:26 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/08 17:14:45 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ void	mandelbrot(t_fractal *fractal)
 		fractal->zy = 2.0 * fractal->zx * fractal->zy + fractal->cy;
 		fractal->zx = zx_squared - zy_squared + fractal->cx;
 	}
-	if (iterations == fractal->max_iterations)
-		pixel_color(fractal, fractal->x, SIZE - fractal->y, 0x000000);
-	else
-		pixel_color(fractal, fractal->x, SIZE - fractal->y, (fractal->color
-		* iterations/fractal->max_iterations));
+
+	int color = smooth_color(fractal, iterations, fractal->zx, fractal->zy);
+	pixel_color(fractal, fractal->x, SIZE - fractal->y, color);
 }

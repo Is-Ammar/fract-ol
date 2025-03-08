@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:19:10 by iammar            #+#    #+#             */
-/*   Updated: 2025/03/05 02:30:21 by iammar           ###   ########.fr       */
+/*   Updated: 2025/03/08 17:13:54 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "/usr/include/minilibx-linux/mlx.h"
 # include <stdlib.h>
 # include <unistd.h>
+# include <math.h>
 
 # define SIZE 700
 
@@ -75,5 +76,6 @@ int			exit_fractal(t_fractal *fractal, int toggle);
 void		tricorn(t_fractal *fractal);
 int			ft_isdigit(const char *str);
 int			exit_fractal_wrapper(t_fractal *fractal);
+int			smooth_color(t_fractal *fractal, int iterations, double zx, double zy);
 
 #endif

@@ -1,13 +1,13 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-MLX_LINK =  -L/usr/include/minilibx-linux -lmlx -lXext -lX11
+MLX_LINK =  -L/usr/include/minilibx-linux -lmlx -lXext -lX11 -lm
 
 NAME = fractol
 NAME_B = fractol_bonus
 SRCS = julia.c main.c utils.c mandelbrot.c hook.c render.c exit.c
 SRCSB = bonus/julia_bonus.c bonus/main_bonus.c bonus/utils_bonus.c bonus/mandelbrot_bonus.c \
-		bonus/hook_bonus.c bonus/tricorn.c bonus/render_bonus.c bonus/exit_bonus.c
+		bonus/hook_bonus.c bonus/tricorn_bonus.c bonus/render_bonus.c bonus/exit_bonus.c
 OBJ = $(SRCS:.c=.o)
 OBJB = $(SRCSB:.c=.o)
 

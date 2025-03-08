@@ -40,7 +40,7 @@ void	famous_julias(int key_code, t_fractal *fractal)
 	}
 	else if (key_code == 65453)
 	{
-		if(fractal->max_iterations > 10)
+		if (fractal->max_iterations > 10)
 			fractal->max_iterations -= 10;
 	}
 	else if (key_code == 65451)
