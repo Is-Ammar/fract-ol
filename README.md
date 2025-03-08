@@ -6,6 +6,8 @@ Welcome to **Fract-ol**, a mesmerizing fractal visualization project! This progr
 
 * * * * *
 
+![](screenshots/julia2.png)
+
 📖 Table of Contents
 --------------------
 
@@ -126,8 +128,7 @@ Example for Julia with custom parameters:
 
 Here are some sample fractals rendered with **Fract-ol**:
 
-| Mandelbrot | Julia |
-|  |  |
+ ![](screenshots/mandelbrot.png) |  ![](screenshots/julia.png)|
 
 * * * * *
 
